@@ -1,3 +1,5 @@
+Link : https://customer-portal-ashy.vercel.app/
+# Deployed on vercel
 # Customer Portal
 
 This is a single-page React application built in TypeScript using the Context API and Redux Toolkit. The application displays a customer list and shows detailed information about a selected customer, including a grid of photos that change every 10 seconds.
