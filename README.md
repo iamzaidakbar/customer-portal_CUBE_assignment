@@ -10,6 +10,7 @@ This is a single-page React application built in TypeScript using the Context AP
 - The left side of the application contains a list of customers.
 - The list implements infinite scroll functionality, fetching 10 customers at a time.
 - As you scroll down, more customers are loaded from the dummyData until no more customers are available.
+- Limit of the customers is 1000.
 
 ### 2. Customer Details View
 - When a customer is selected from the list, their details are displayed on the right side of the application.
