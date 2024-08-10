@@ -1,0 +1,79 @@
+.customer-details {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 70%;
+  padding: 44px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+}
+
+.customer-name {
+  font-size: 24px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.699);
+}
+
+.customer-title {
+  font-size: 15px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.445);
+  text-align: center;
+}
+
+.customer-address {
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.photo-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 44px;
+}
+
+.photo-container {
+  position: relative;
+}
+
+.photo-container img {
+  width: 220px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 0; 
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.photo-container img.loaded {
+  opacity: 1;
+}
+
+.photo-container .shimmer {
+  width: 220px;
+  height: 170px;
+  background: linear-gradient(90deg, rgba(110, 107, 107, 0.2) 25%, rgba(151, 151, 151, 0.5) 50%, rgba(255, 255, 255, 0.2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

@@ -1,0 +1,29 @@
+
+.customer-card {
+    padding: 24px;
+    background-color: #ffffff;
+    cursor: pointer;
+    height: 160px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    border-bottom: 1px solid rgba(226, 224, 224, 0.63);
+  }
+  
+  .customer-card h3 {
+    font-size: 24px;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.699);
+  }
+  
+  .customer-card p {
+    font-size: 15px;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.445);
+  }
+  
+  .customer-card.selected {
+    background-color: #e0e0e0;
+  }
