@@ -5,6 +5,7 @@ import CustomerDetails from '../components/CustomerDetails';
 import { debounce } from '../utils/debounce';
 import '../styles/Home.css'
 import NoCustomerSelected from '../components/NoCustomerSelected';
+import { CUSTOMER_TOTAL_ENTRIES_LIMIT } from '../utils/constants';
 
 const Home: React.FC = () => {
   const { customers, selectedCustomer, loadCustomers, selectCustomer, hasMore, loading } = useCustomerContext();
@@ -18,7 +19,6 @@ const Home: React.FC = () => {
       loadCustomers();
     }
   }, 300), [hasMore, loadCustomers]);
-console.log(loading);
 
   return (
     <div className="home">
@@ -38,6 +38,7 @@ console.log(loading);
         ))}
         {!hasMore && <div className='information-indicator-wrapper'><p className='information-indicator'>No more customers to load.</p></div>}
         {loading && <div className='information-indicator-wrapper'><p className='information-indicator'>Loading...</p></div>}
+        <div className='items-indicator-wrapper'><p className='items-indicator'>{customers.length}/{CUSTOMER_TOTAL_ENTRIES_LIMIT}</p></div>
       </div>
       {/* Show customer details or a placeholder if none is selected */}
       {selectedCustomer ? <CustomerDetails customer={selectedCustomer} /> : <NoCustomerSelected />}

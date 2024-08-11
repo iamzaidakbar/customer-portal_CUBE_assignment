@@ -26,7 +26,7 @@
     background-color: #979696;
   }
 
-  .information-indicator-wrapper {
+  .information-indicator-wrapper, .items-indicator-wrapper {
     position: absolute;
     bottom: 10px;
     width: 30%;
@@ -34,7 +34,7 @@
     align-items: center;
     justify-content: center;
   }
-  .information-indicator {
+  .information-indicator, .items-indicator {
     background-color: rgba(0, 0, 0, 0.438);
     width: auto;
     color: #fff;
@@ -42,4 +42,12 @@
     padding: 4px 8px;
     font-size: 12px;
     letter-spacing: 1px;
+  }
+
+  .items-indicator-wrapper {
+    justify-content: flex-end;
+    padding-right: 20px;
+  }
+  .items-indicator {
+    font-size: 10px;
   }
