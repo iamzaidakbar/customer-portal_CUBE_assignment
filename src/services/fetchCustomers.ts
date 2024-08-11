@@ -6,6 +6,6 @@ export const fetchCustomers = (start: number, limit: number): Promise<Customer[]
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(dummyCustomers.slice(start, start + limit));
-    }, 0); 
+    }, 500); 
   });
 };

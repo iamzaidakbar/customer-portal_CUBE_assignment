@@ -7,7 +7,7 @@ import '../styles/Home.css'
 import NoCustomerSelected from '../components/NoCustomerSelected';
 
 const Home: React.FC = () => {
-  const { customers, selectedCustomer, loadCustomers, selectCustomer, hasMore } = useCustomerContext();
+  const { customers, selectedCustomer, loadCustomers, selectCustomer, hasMore, loading } = useCustomerContext();
   const listRef = useRef<HTMLDivElement>(null);
 
   // Load more customers when nearing the bottom of the list
@@ -15,10 +15,10 @@ const Home: React.FC = () => {
     if (!listRef.current) return;
     const { scrollTop, scrollHeight, clientHeight } = listRef.current;
     if (scrollTop + clientHeight >= scrollHeight - 50 && hasMore) {
-      console.log('fetching...');
       loadCustomers();
     }
   }, 300), [hasMore, loadCustomers]);
+console.log(loading);
 
   return (
     <div className="home">
@@ -36,7 +36,8 @@ const Home: React.FC = () => {
             onSelect={() => selectCustomer(customer)}
           />
         ))}
-        {!hasMore && <p>No more customers to load.</p>}
+        {!hasMore && <div className='information-indicator-wrapper'><p className='information-indicator'>No more customers to load.</p></div>}
+        {loading && <div className='information-indicator-wrapper'><p className='information-indicator'>Loading...</p></div>}
       </div>
       {/* Show customer details or a placeholder if none is selected */}
       {selectedCustomer ? <CustomerDetails customer={selectedCustomer} /> : <NoCustomerSelected />}

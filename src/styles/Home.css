@@ -25,3 +25,21 @@
   .customer-list::-webkit-scrollbar-thumb {
     background-color: #979696;
   }
+
+  .information-indicator-wrapper {
+    position: absolute;
+    bottom: 10px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .information-indicator {
+    background-color: rgba(0, 0, 0, 0.438);
+    width: auto;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }

@@ -9,6 +9,7 @@ interface CustomerContextType {
   selectCustomer: (customer: Customer) => void;
   hasMore: boolean;
   currentPage: number;
+  loading: boolean;
 }
 
 const CustomerContext = createContext<CustomerContextType | undefined>(undefined);
@@ -22,7 +23,7 @@ export const useCustomerContext = () => {
 };
 
 export const CustomerProvider = ({ children }: { children: ReactNode }) => {
-  const { customers, loadCustomers, hasMore, currentPage } = useCustomerLoader();
+  const { customers, loadCustomers, hasMore, currentPage, loading } = useCustomerLoader();
   const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
 
   const selectCustomer = (customer: Customer) => {
@@ -30,7 +31,7 @@ export const CustomerProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <CustomerContext.Provider value={{ customers, selectedCustomer, loadCustomers, selectCustomer, hasMore, currentPage }}>
+    <CustomerContext.Provider value={{ customers, selectedCustomer, loadCustomers, selectCustomer, hasMore, currentPage, loading }}>
       {children}
     </CustomerContext.Provider>
   );

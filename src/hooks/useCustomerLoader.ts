@@ -7,9 +7,11 @@ export const useCustomerLoader = () => {
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const loadCustomers = useCallback(async () => {
     try {
+      setLoading(true)
       // Calculate the start index and limit for the current page
       const start = (currentPage - 1) * PAGE_SIZE;
       const limit = PAGE_SIZE;
@@ -28,11 +30,13 @@ export const useCustomerLoader = () => {
 
       // Move to the next page for future loading
       setCurrentPage(prevPage => prevPage + 1);
+      setLoading(false)
     } catch (error) {
+      setLoading(false)
       console.error('Error fetching customers:', error);
       console.log({ type: 'FETCH_CUSTOMERS_FAILURE' });
     }
   }, [currentPage]);
 
-  return { customers, loadCustomers, hasMore, currentPage };
+  return { customers, loadCustomers, hasMore, currentPage, loading };
 };
